@@ -1,0 +1,11 @@
+{
+    "name": "millermedia/userslist",
+    "description": "Users List",
+    "type": "project",
+    "require": {},
+	"autoload": {
+		"psr-4": {
+		  "MillerMedia\\UsersList\\": "classes/"
+		}
+	}
+}
