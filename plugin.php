@@ -78,7 +78,7 @@ add_action( 'mwp_framework_init', function()
 				],
 			],
 			'sortable' => [
-				'display_name' => [ 'display_name', true ],
+				'display_name' => [ 'display_name', false ],
 				'user_login' => [ 'user_login', false ],
 			],
 			'handlers' => [
