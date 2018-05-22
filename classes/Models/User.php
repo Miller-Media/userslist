@@ -53,25 +53,18 @@ class _User extends ActiveRecord
     public static $key = 'ID';
 
     /**
-     * @var    string        Table column prefix
-     */
-    public static $prefix = '';
-
-    /**
-     * @var bool        Separate table per site?
-     */
-    public static $site_specific = FALSE;
-
-    /**
      * @var string      The class of the managing plugin
      */
     public static $plugin_class = 'MillerMedia\UsersList\Plugin';
 	
+	/* Language Strings */
 	public static $lang_singular = 'User';
 	public static $lang_plural = 'Users';
 	
 	/**
 	 * Save record
+	 * 
+	 * - Proxy to core wp user functions
 	 * 
 	 * @return	bool|WP_Error
 	 */
@@ -97,8 +90,10 @@ class _User extends ActiveRecord
 	}
 	
 	/**
-	 * Save record
+	 * Delete record
 	 * 
+	 * Proxy to core wp_delete_user function
+	 *
 	 * @return	bool|WP_Error
 	 */
 	public function delete()

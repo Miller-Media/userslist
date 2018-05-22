@@ -44,17 +44,4 @@ class Plugin extends \MWP\Framework\Plugin
 	 */
 	public $mainScript = 'assets/js/main.js';
 	
-	/**
-	 * Enqueue scripts and stylesheets
-	 * 
-	 * @MWP\WordPress\Action( for="wp_enqueue_scripts" )
-	 *
-	 * @return	void
-	 */
-	public function enqueueScripts()
-	{
-		$this->useStyle( $this->mainStyle );
-		$this->useScript( $this->mainScript );
-	}
-	
 }

@@ -30,20 +30,20 @@ use MillerMedia\UsersList\Models\User;
 add_action( 'mwp_framework_init', function() 
 {
 	/**
-	 * Get the framework instance
+	 * Initialize
 	 */
 	$framework = MWP\Framework\Framework::instance();
-	
-	/**
-	 * Plugin Core 
-	 *
-	 * Attach the functionality contained within the core
-	 * Plugin class. Splitting functionality into multiple
-	 * classes requires attaching each singleton instance.
-	 */
 	$plugin	= MillerMedia\UsersList\Plugin::instance();
 	$framework->attach( $plugin );
 	
+	/**
+	 * Create a controller to manage our users
+	 *
+	 * - Add it to an admin page
+	 * - Make it ajax
+	 * - Include a role selection filter
+	 * - Allow sorting by user login or display name
+	 */
 	User::createController( 'admin', array(
 		'adminPage' => [
 			'title' => 'Users List',
@@ -52,7 +52,9 @@ add_action( 'mwp_framework_init', function()
 			'position' => 71,
 		],
 		'tableConfig' => [
-			'bulkActions' => [],
+			'constructor' => [
+				'ajax' => true,
+			],
 			'columns' => [
 				'display_name' => 'Display Name',
 				'user_login' => 'Login Name',
@@ -86,6 +88,7 @@ add_action( 'mwp_framework_init', function()
 					return implode(', ', array_map( function( $role ) use ( $roles ) { return $roles->roles[ $role ]['name']; }, $user->roles ) );
 				},
 			],
+			'bulkActions' => [],
 		],
 	));
 	
