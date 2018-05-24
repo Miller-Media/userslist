@@ -90,6 +90,20 @@ class _User extends ActiveRecord
 	}
 	
 	/**
+	 * Modify the controller action links
+	 *
+	 * @return	array
+	 */
+	public function getControllerActions()
+	{
+		$actions = parent::getControllerActions();
+		$actions['edit']['url'] = get_edit_user_link( $this->id() );
+		$actions['view']['url'] = get_author_posts_url( $this->id() );
+		
+		return $actions;
+	}
+	
+	/**
 	 * Delete record
 	 * 
 	 * Proxy to core wp_delete_user function
