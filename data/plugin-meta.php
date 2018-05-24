@@ -6,6 +6,6 @@ return <<<'JSON'
     "name": "Users List",
     "namespace": "MillerMedia\\UsersList",
     "slug": "millermedia-userslist",
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
 JSON;

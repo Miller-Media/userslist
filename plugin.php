@@ -5,7 +5,7 @@
  * Description: 
  * Author: Kevin Carwile
  * Author URI: 
- * Version: 0.0.1
+ * Version: 0.0.2
  */
  
 if ( ! defined( 'ABSPATH' ) ) {
